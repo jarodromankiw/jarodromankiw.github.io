@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border-bottom: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  hr {
+    margin-bottom: 1.5em;
+    border: 1px solid black;
+
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  h1 { font-size: 2em; line-height: 1.125; font-weight: 600; letter-spacing: -0.05em;}
+  h2 { font-size: 28px; font-weight: 600;}
+  h3 { font-size: 24px; font-weight: 600;}
+  h4 { font-size: 20px; font-weight: 500;}
+  h5 { font-size: 18px; font-weight: 500;}
+  h6 { font-size: 16px; font-weight: 700;}
+  .subtitle { font-size: 18px; }
+  .large-text { font-size: 24px; }
+  p { font-size: 16px; margin: 0;}
+  .small-paragraph { font-size: 14px; }
+  .right-column {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .media-kit-logo{
+    height: 300px;
+  }
+</style>
+<style>
+
+  .color-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.color-box {
+  width: 200px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.color-details {
+  flex-grow: 1;
+}
+
+</style>
+<script>
+  function updateTable() {
+    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .subtitle, .large-text, p, .small-paragraph');
+    const rows = document.querySelectorAll('tr');
+
+    headings.forEach((heading, index) => {
+      const row = rows[index + 1]; // Add 1 to skip header row
+      const computedStyle = window.getComputedStyle(heading);
+
+      // Convert RGB color to hexadecimal
+      const colorRgb = computedStyle.color.match(/\d+/g);
+      const colorHex = '#' + colorRgb.map(value => parseInt(value).toString(16).padStart(2, '0')).join('');
+
+      row.cells[1].textContent = computedStyle.fontWeight;
+      row.cells[2].textContent = computedStyle.fontSize;
+      row.cells[3].textContent = computedStyle.lineHeight;
+      row.cells[4].textContent = colorHex;
+      row.cells[5].textContent = computedStyle.letterSpacing;
+
+
+    });
+  }
+
+  window.onload = updateTable;
+</script>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Font Styles</th>
+    <th>Font Weight</th>
+    <th>Font Size</th>
+    <th>Line Height</th>
+    <th>Color</th>
+    <th>Spacing</th>
+  </tr>
+  <tr>
+    <td>
+      <h1>H1 Header Text</h1>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <h2>H2 Header Text</h2>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <h3>H3 Header Text</h3>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <h4>H4 Header Text</h4>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <h5>H5 Header Text</h5>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <h6>H6 Header Text</h6>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <div class="subtitle">Subtitle Text</div>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <div class="large-text">Supporting Large Text</div>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <p>Regular paragraph.</p>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+  <tr>
+    <td>
+      <p class="small-paragraph">Small paragraph.</p>
+    </td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+    <td class="right-column"></td>
+  </tr>
+</table>
+<br><br>
+<h2>Logos</h2>
+<hr>
+<img src="images/svg/romankiw-black.svg" class="media-kit-logo">
+<img src="images/svg/romankiw-white.svg" class="media-kit-logo">
+<br>
+<img src="images/svg/jarodromankiw-black.svg" class="media-kit-logo">
+<img src="images/svg/jarodromankiw-white.svg" class="media-kit-logo">
+<br>
+<img src="images/svg/jr-black.svg" class="media-kit-logo">
+<img src="images/svg/jr-white.svg" class="media-kit-logo">
+
+<h2>Primary Colors</h2>
+<hr>
+<div class="color-info">
+  <div class="color-box" style="background-color: black;"></div>
+  <div class="color-details">
+    <h6>Black</h6>
+    <p>RGB: 0/0/0</p>
+    <p>HEX: #000000</p>
+  </div>
+</div>
+<div class="color-info">
+  <div class="color-box" style="background-color: white; border: 1px solid #A8ACB1;"></div>
+  <div class="color-details">
+    <h6>White</h6>
+    <p>RGB: 255/255/255</p>
+    <p>HEX: #FFFFFF</p>
+  </div>
+</div>
+<h2>Secondary Colors</h2>
+<hr>
+<div class="color-info">
+  <div class="color-box" style="background-color: #002E5D;"></div>
+  <div class="color-details">
+    <h6>Blue</h6>
+    <p>RGB: 1/46/93</p>
+    <p>HEX: #002E5D</p>
+    <p>PMS: 648 C</p>
+  </div>
+</div>
+<div class="color-info">
+  <div class="color-box" style="background-color: #F5F7F9; border: 1px solid #A8ACB1;"></div>
+  <div class="color-details">
+    <h6>Off White</h6>
+    <p>RGB: 245/247/249</p>
+    <p>HEX: #F5F7F9</p>
+  </div>
+</div>
+<div class="color-info">
+  <div class="color-box" style="background-color: #a8acb1;"></div>
+  <div class="color-details">
+    <h6>Light Gray</h6>
+    <p>RGB: 168/172/177</p>
+    <p>HEX: #A8ACB1</p>
+  </div>
+</div>
+<div class="color-info">
+  <div class="color-box" style="background-color: #777A81;"></div>
+  <div class="color-details">
+    <h6>Medium Gray</h6>
+    <p>RGB: 199/122/129</p>
+    <p>HEX: #777A81</p>
+  </div>
+</div>
+<div class="color-info">
+  <div class="color-box" style="background-color: #181A1D;"></div>
+  <div class="color-details">
+    <h6>Off Black</h6>
+    <p>RGB: 24/26/29</p>
+    <p>HEX: #181A1D</p>
+  </div>
+</div>
+</body>
+</html>
+
+
+
