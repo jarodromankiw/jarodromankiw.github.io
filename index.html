@@ -1,281 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+      <style>
+        img{
+          border-radius: 10px;
+        }
+         body {
+         font-family: 'Inter', sans-serif;
+         }
+         table {
+         width: 100%;
+         border-collapse: collapse;
+         }
+         th, td {
+         border-bottom: 1px solid black;
+         padding: 10px;
+         text-align: left;
+         vertical-align: top;
+         }
+         hr {
+         margin-bottom: 1.5em;
+         border: 1px solid black;
+         }
+         h1, h2, h3, h4, h5, h6 {
+         margin: 0;
+         }
+         h1 { font-size: 2em; line-height: 1.125; font-weight: 600; letter-spacing: -0.05em;}
+         h2 { font-size: 28px; font-weight: 600;}
+         h3 { font-size: 24px; font-weight: 600;}
+         h4 { font-size: 20px; font-weight: 500;}
+         h5 { font-size: 18px; font-weight: 500;}
+         h6 { font-size: 16px; font-weight: 700;}
+         .subtitle { font-size: 18px; }
+         .large-text { font-size: 24px; }
+         p { font-size: 16px; margin: 0;}
+         .small-paragraph { font-size: 14px; }
+         .right-column {
+         font-size: 18px;
+         line-height: 1.5;
+         }
+         .media-kit-logo{
+         
+         }
+
+
+      </style>
+      <style>
+         .color-info {
+         display: flex;
+         align-items: center;
+         margin-bottom: 20px;
+         }
+         .color-box {
+         width: 180px;
+         height: 120px;
+         margin-right: 20px;
+         }
+         .color-details {
+         flex-grow: 1;
+         }
+           .gradient-box {
+    background: linear-gradient(to bottom, rgb(5,35,65), rgb(193,206,222));
+  }
+      </style>
+      <!-- Global Nav Bar -->
+      <style>
+         /* Reset default margin and padding */
+         body, h1, ul {
+         margin: 0;
+         padding: 0;
+         }
+         /* Global navigation bar styles */
+         .navbar {
+         background-color: #181A1D;
+         overflow: hidden;
+         margin-bottom: 40px;
+         }
+         /* Logo styles */
+         .logo {
+         float: left;
+         padding: 10px 0px;
+         width: 250px;
+         }
+         /* Navigation links styles */
+         .navbar ul {
+         list-style-type: none;
+         float: right;
+         }
+         .navbar li {
+         display: inline-block;
+         margin: 0 10px;
+         }
+         .navbar a {
+         color: white;
+         text-decoration: none;
+         }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px; /* Add some spacing inside the container */
+        }
+      </style>
+
+      <!-- 2 Column Style -->
 <style>
-  body {
-    font-family: 'Inter', sans-serif;
+  /* ... previous styles ... */
+
+  .container2x1 {
+    display: flex;
+    flex-wrap: wrap;
   }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th, td {
-    border-bottom: 1px solid black;
+
+  .column2x1 {
+    width: 50%; /* Two columns */
     padding: 10px;
-    text-align: left;
-    vertical-align: top;
-  }
-  hr {
-    margin-bottom: 1.5em;
-    border: 1px solid black;
-
+    box-sizing: border-box;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+  .tile {
+    padding: 25px;
+    background-color: #F5F7F9;
+    width: 100%;
+    border-radius: 10px;
   }
-  h1 { font-size: 2em; line-height: 1.125; font-weight: 600; letter-spacing: -0.05em;}
-  h2 { font-size: 28px; font-weight: 600;}
-  h3 { font-size: 24px; font-weight: 600;}
-  h4 { font-size: 20px; font-weight: 500;}
-  h5 { font-size: 18px; font-weight: 500;}
-  h6 { font-size: 16px; font-weight: 700;}
-  .subtitle { font-size: 18px; }
-  .large-text { font-size: 24px; }
-  p { font-size: 16px; margin: 0;}
-  .small-paragraph { font-size: 14px; }
-  .right-column {
-    font-size: 18px;
-    line-height: 1.5;
+
+  @media (max-width: 768px) {
+    .column2x1 {
+      width: 100%; /* One column on mobile */
+    }
   }
-  .media-kit-logo{
-    height: 300px;
-  }
+  .button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #181A1D;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}
 </style>
-<style>
-
-  .color-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.color-box {
-  width: 200px;
-  height: 100px;
-  margin-right: 20px;
-}
-
-.color-details {
-  flex-grow: 1;
-}
-
-</style>
-<script>
-  function updateTable() {
-    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .subtitle, .large-text, p, .small-paragraph');
-    const rows = document.querySelectorAll('tr');
-
-    headings.forEach((heading, index) => {
-      const row = rows[index + 1]; // Add 1 to skip header row
-      const computedStyle = window.getComputedStyle(heading);
-
-      // Convert RGB color to hexadecimal
-      const colorRgb = computedStyle.color.match(/\d+/g);
-      const colorHex = '#' + colorRgb.map(value => parseInt(value).toString(16).padStart(2, '0')).join('');
-
-      row.cells[1].textContent = computedStyle.fontWeight;
-      row.cells[2].textContent = computedStyle.fontSize;
-      row.cells[3].textContent = computedStyle.lineHeight;
-      row.cells[4].textContent = colorHex;
-      row.cells[5].textContent = computedStyle.letterSpacing;
 
 
-    });
-  }
+      <script>
+         function updateTable() {
+           const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .subtitle, .large-text, p, .small-paragraph');
+           const rows = document.querySelectorAll('tr');
+         
+           headings.forEach((heading, index) => {
+             const row = rows[index + 1]; // Add 1 to skip header row
+             const computedStyle = window.getComputedStyle(heading);
+         
+             // Convert RGB color to hexadecimal
+             const colorRgb = computedStyle.color.match(/\d+/g);
+             const colorHex = '#' + colorRgb.map(value => parseInt(value).toString(16).padStart(2, '0')).join('');
+         
+             row.cells[1].textContent = computedStyle.fontWeight;
+             row.cells[2].textContent = computedStyle.fontSize;
+             row.cells[3].textContent = computedStyle.lineHeight;
+             row.cells[4].textContent = colorHex;
+             row.cells[5].textContent = computedStyle.letterSpacing; 
+           });
+         }
+         
+         window.onload = updateTable;
+      </script>
+   </head>
+   <body>
+      <!-- Global Nav Bar -->
+      <body>
+         <div class="navbar">
+          <div class="container">
+            <div class="logo">
+               <img src="images/svg/jarodromankiw-white-solo.svg" alt="Logo">
+            </div>
+            <ul>
+               <li><a href="#">Home</a></li>
+               <li><a href="#">About</a></li>
+               <li><a href="#">Services</a></li>
+               <li><a href="#">Contact</a></li>
+            </ul>
+         </div>
+       </div>
+   </body>
+   <div class="container">
+  <p class="large-text">Get the typefaces you need to design interfaces for your apps on Apple platforms. These typefaces are designed to optimally display text at a variety of sizes and in a wide range of languages across multiple interfaces.</p>
+  <br>
+   <h2>Typography</h2>
+   <hr>
+   <table>
+      <tr>
+         <th>Font Styles</th>
+         <th>Font Weight</th>
+         <th>Font Size</th>
+         <th>Line Height</th>
+         <th>Color</th>
+         <th>Spacing</th>
+      </tr>
+      <tr>
+         <td>
+            <h1>H1 Header Text</h1>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <h2>H2 Header Text</h2>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <h3>H3 Header Text</h3>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <h4>H4 Header Text</h4>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <h5>H5 Header Text</h5>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <h6>H6 Header Text</h6>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <div class="subtitle">Subtitle Text</div>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <div class="large-text">Supporting Large Text</div>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <p>Regular paragraph.</p>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+      <tr>
+         <td>
+            <p class="small-paragraph">Small paragraph.</p>
+         </td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+         <td class="right-column"></td>
+      </tr>
+   </table>
+   <br><br>
+   <h2>Logos</h2>
+   <hr>
+   <div class="container2x1">
+   <div class="column2x1">
+   <img src="images/svg/romankiw-black.svg" class="media-kit-logo">
+   </div>
+   <div class="column2x1 right">
+   <img src="images/svg/romankiw-white.svg" class="media-kit-logo">
+   </div>
+   </div>
+      <div class="container2x1">
+   <div class="column2x1">
+   <img src="images/svg/jarodromankiw-black.svg" class="media-kit-logo">
+   </div>
+   <div class="column2x1">
+   <img src="images/svg/jarodromankiw-white.svg" class="media-kit-logo">
+   </div>
+   </div>
+      <div class="container2x1">
+   <div class="column2x1">
+   <img src="images/svg/jr-black.svg" class="media-kit-logo">
+   </div>
+   <div class="column2x1 right">
+   <img src="images/svg/jr-white.svg" class="media-kit-logo">
+   </div>
+   </div>
+   <h2>Primary Colors</h2>
+   <hr>
+      <div class="color-info">
+      <div class="color-box" style="background-color: #181A1D;"></div>
+      <div class="color-details">
+         <h6>Off Black</h6>
+         <p>RGB: 24/26/29</p>
+         <p>HEX: #181A1D</p>
+      </div>
+   </div>
 
-  window.onload = updateTable;
-</script>
-</head>
-<body>
-<table>
-  <tr>
-    <th>Font Styles</th>
-    <th>Font Weight</th>
-    <th>Font Size</th>
-    <th>Line Height</th>
-    <th>Color</th>
-    <th>Spacing</th>
-  </tr>
-  <tr>
-    <td>
-      <h1>H1 Header Text</h1>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <h2>H2 Header Text</h2>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <h3>H3 Header Text</h3>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <h4>H4 Header Text</h4>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <h5>H5 Header Text</h5>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <h6>H6 Header Text</h6>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <div class="subtitle">Subtitle Text</div>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <div class="large-text">Supporting Large Text</div>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <p>Regular paragraph.</p>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-  <tr>
-    <td>
-      <p class="small-paragraph">Small paragraph.</p>
-    </td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-    <td class="right-column"></td>
-  </tr>
-</table>
-<br><br>
-<h2>Logos</h2>
-<hr>
-<img src="images/svg/romankiw-black.svg" class="media-kit-logo">
-<img src="images/svg/romankiw-white.svg" class="media-kit-logo">
-<br>
-<img src="images/svg/jarodromankiw-black.svg" class="media-kit-logo">
-<img src="images/svg/jarodromankiw-white.svg" class="media-kit-logo">
-<br>
-<img src="images/svg/jr-black.svg" class="media-kit-logo">
-<img src="images/svg/jr-white.svg" class="media-kit-logo">
+   <div class="color-info">
+      <div class="color-box" style="background-color: white; border: 1px solid #A8ACB1;"></div>
+      <div class="color-details">
+         <h6>White</h6>
+         <p>RGB: 255/255/255</p>
+         <p>HEX: #FFFFFF</p>
+      </div>
+   </div>
+   <h2>Secondary Colors</h2>
+   <hr>
+   <div class="color-info">
+      <div class="color-box" style="background-color: #002E5D;"></div>
+      <div class="color-details">
+         <h6>Blue</h6>
+         <p>RGB: 1/46/93</p>
+         <p>HEX: #002E5D</p>
+         <p>PMS: 648 C</p>
+      </div>
+   </div>
+   <div class="color-info">
+      <div class="color-box" style="background-color: #F5F7F9; border: 1px solid #A8ACB1;"></div>
+      <div class="color-details">
+         <h6>Off White</h6>
+         <p>RGB: 245/247/249</p>
+         <p>HEX: #F5F7F9</p>
+      </div>
+   </div>
+   <div class="color-info">
+      <div class="color-box" style="background-color: #a8acb1;"></div>
+      <div class="color-details">
+         <h6>Light Gray</h6>
+         <p>RGB: 168/172/177</p>
+         <p>HEX: #A8ACB1</p>
+      </div>
+   </div>
+   <div class="color-info">
+      <div class="color-box" style="background-color: #777A81;"></div>
+      <div class="color-details">
+         <h6>Medium Gray</h6>
+         <p>RGB: 199/122/129</p>
+         <p>HEX: #777A81</p>
+      </div>
+   </div>
+   <div class="color-info">
+      <div class="color-box" style="background-color: black;"></div>
+      <div class="color-details">
+         <h6>Black</h6>
+         <p>RGB: 0/0/0</p>
+         <p>HEX: #000000</p>
+      </div>
+   </div>
+      <div class="color-info">
+     <div class="gradient-box color-box"></div>
+      <div class="color-details">
+         <h6>Sky Gradient</h6>
+         <p>RGB: 5/35/65 &rarr; 193/206/222</p>
+         <p>HEX: #052341 &rarr; #C1CEDE</p>
+      </div>
+   </div>
 
-<h2>Primary Colors</h2>
-<hr>
-<div class="color-info">
-  <div class="color-box" style="background-color: black;"></div>
-  <div class="color-details">
-    <h6>Black</h6>
-    <p>RGB: 0/0/0</p>
-    <p>HEX: #000000</p>
+   
+
+
+   <h2>Typography</h2>
+   <hr>
+<div class="container2x1">
+    <div class="column2x1">
+      <p>Inter is a variable font family carefully crafted & designed for computer screens.<br><br>Inter features a tall x-height to aid in readability of mixed-case and lower-case text. Several OpenType features are provided as well, like contextual alternates that adjusts punctuation depending on the shape of surrounding glyphs, slashed zero for when you need to disambiguate "0" from "o", tabular numbers, etc.<br><br>The Inter project is led by Rasmus Andersson, a Swedish maker–of–software living in San Francisco. To contribute, see github.com/rsms/inter</p><br><a href="https://fonts.google.com/specimen/Inter" class="button" target="_blank"><p>Download Inter from Google Fonts</p></a>
+    </div>
+
+    <div class="column2x1" style="padding-right: 0px;">
+         <img src="images/svg/romankiw-black.svg">
+    </div>
   </div>
-</div>
-<div class="color-info">
-  <div class="color-box" style="background-color: white; border: 1px solid #A8ACB1;"></div>
-  <div class="color-details">
-    <h6>White</h6>
-    <p>RGB: 255/255/255</p>
-    <p>HEX: #FFFFFF</p>
-  </div>
-</div>
-<h2>Secondary Colors</h2>
-<hr>
-<div class="color-info">
-  <div class="color-box" style="background-color: #002E5D;"></div>
-  <div class="color-details">
-    <h6>Blue</h6>
-    <p>RGB: 1/46/93</p>
-    <p>HEX: #002E5D</p>
-    <p>PMS: 648 C</p>
-  </div>
-</div>
-<div class="color-info">
-  <div class="color-box" style="background-color: #F5F7F9; border: 1px solid #A8ACB1;"></div>
-  <div class="color-details">
-    <h6>Off White</h6>
-    <p>RGB: 245/247/249</p>
-    <p>HEX: #F5F7F9</p>
-  </div>
-</div>
-<div class="color-info">
-  <div class="color-box" style="background-color: #a8acb1;"></div>
-  <div class="color-details">
-    <h6>Light Gray</h6>
-    <p>RGB: 168/172/177</p>
-    <p>HEX: #A8ACB1</p>
-  </div>
-</div>
-<div class="color-info">
-  <div class="color-box" style="background-color: #777A81;"></div>
-  <div class="color-details">
-    <h6>Medium Gray</h6>
-    <p>RGB: 199/122/129</p>
-    <p>HEX: #777A81</p>
-  </div>
-</div>
-<div class="color-info">
-  <div class="color-box" style="background-color: #181A1D;"></div>
-  <div class="color-details">
-    <h6>Off Black</h6>
-    <p>RGB: 24/26/29</p>
-    <p>HEX: #181A1D</p>
-  </div>
-</div>
-</body>
+   <h2>Typography</h2>
+   <hr>
+<div class="tile">
+      <h2>Inter</h2>
+      <p>This neutral, flexible, sans-serif typeface is the system font for iOS, iPadOS, macOS and tvOS. SF Pro features nine weights, variable optical sizes for optimal legibility, four widths, and includes a rounded variant. SF Pro supports over 150 languages across Latin, Greek, and Cyrillic scripts.</p>
+      <a href="#" class="button"><p>Download Inter from Google Fonts</p></a>
+    </div>
+<br><br><br><p>test</p>
+
+
+ </div>
+   </body>
 </html>
-
-
-
