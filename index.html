@@ -2,12 +2,14 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8">
+      <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+      <link rel="shortcut icon" href="images/favicon.svg" type="image/svg+xml">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
       <style>
-        img{
-          border-radius: 10px;
-        }
+         img{
+         border-radius: 10px;
+         }
          body {
          font-family: 'Inter', sans-serif;
          }
@@ -28,25 +30,23 @@
          h1, h2, h3, h4, h5, h6 {
          margin: 0;
          }
-         h1 { font-size: 2em; line-height: 1.125; font-weight: 600; letter-spacing: -0.05em;}
+         h1 { font-size: 2em; line-height: 1.125; font-weight: 600; letter-spacing: -0.04em;}
          h2 { font-size: 28px; font-weight: 600;}
          h3 { font-size: 24px; font-weight: 600;}
          h4 { font-size: 20px; font-weight: 500;}
          h5 { font-size: 18px; font-weight: 500;}
          h6 { font-size: 16px; font-weight: 700;}
+         p { font-size: 16px; margin: 0;}
          .subtitle { font-size: 18px; }
          .large-text { font-size: 24px; }
-         p { font-size: 16px; margin: 0;}
+         
          .small-paragraph { font-size: 14px; }
          .right-column {
          font-size: 18px;
          line-height: 1.5;
          }
          .media-kit-logo{
-         
          }
-
-
       </style>
       <style>
          .color-info {
@@ -62,9 +62,6 @@
          .color-details {
          flex-grow: 1;
          }
-           .gradient-box {
-    background: linear-gradient(to bottom, rgb(5,35,65), rgb(193,206,222));
-  }
       </style>
       <!-- Global Nav Bar -->
       <style>
@@ -98,338 +95,379 @@
          color: white;
          text-decoration: none;
          }
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 0 20px; /* Add some spacing inside the container */
-        }
+         .container {
+         max-width: 980px;
+         margin: 0 auto;
+         padding: 0 20px; /* Add some spacing inside the container */
+         }
+      </style>
+      <!-- 2 Column Style -->
+      <style>
+         /* ... previous styles ... */
+         .container2x1 {
+         display: flex;
+         flex-wrap: wrap;
+         width: 100%;
+         }
+         .column2x1 {
+         width: 50%; /* Two columns */
+         padding: 10px;
+         box-sizing: border-box;
+         }
+         .tile {
+         padding: 25px;
+         background-color: #F5F7F9;
+         width: 100%;
+         border-radius: 10px;
+         }
+         @media (max-width: 768px) {
+         .column2x1 {
+         width: 100%; /* One column on mobile */
+         }
+         }
+         .button {
+         display: inline-block;
+         margin-top: 10px;
+         padding: 5px 10px;
+         border-radius: 5px;
+         background-color: #181A1D;
+         color: white;
+         text-align: center;
+         cursor: pointer;
+         transition: background-color 0.3s, color 0.3s;
+         text-decoration: none;
+         }
+         .button:hover {
+         background-color: black;
+         color: white;
+         }
       </style>
 
-      <!-- 2 Column Style -->
-<style>
-  /* ... previous styles ... */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- ... your existing head content ... -->
+   <script>
+      window.addEventListener('load', function() {
+         var table = document.getElementById('typographyTable');
+         var rows = table.getElementsByTagName('tr');
 
-  .container2x1 {
-    display: flex;
-    flex-wrap: wrap;
-  }
+         for (var rowIndex = 1; rowIndex < rows.length; rowIndex++) {
+            var currentRow = rows[rowIndex];
+            var styleElement = currentRow.getElementsByTagName('td')[0].querySelector('h1, h2, h3, h4, h5, h6, p, div');
+            var computedStyle = window.getComputedStyle(styleElement);
+            var rightColumnCells = currentRow.querySelectorAll('.right-column');
 
-  .column2x1 {
-    width: 50%; /* Two columns */
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  .tile {
-    padding: 25px;
-    background-color: #F5F7F9;
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  @media (max-width: 768px) {
-    .column2x1 {
-      width: 100%; /* One column on mobile */
-    }
-  }
-  .button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: #181A1D;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  text-decoration: none;
-}
-
-.button:hover {
-  background-color: black;
-  color: white;
-}
-</style>
-
-
-      <script>
-         function updateTable() {
-           const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .subtitle, .large-text, p, .small-paragraph');
-           const rows = document.querySelectorAll('tr');
-         
-           headings.forEach((heading, index) => {
-             const row = rows[index + 1]; // Add 1 to skip header row
-             const computedStyle = window.getComputedStyle(heading);
-         
-             // Convert RGB color to hexadecimal
-             const colorRgb = computedStyle.color.match(/\d+/g);
-             const colorHex = '#' + colorRgb.map(value => parseInt(value).toString(16).padStart(2, '0')).join('');
-         
-             row.cells[1].textContent = computedStyle.fontWeight;
-             row.cells[2].textContent = computedStyle.fontSize;
-             row.cells[3].textContent = computedStyle.lineHeight;
-             row.cells[4].textContent = colorHex;
-             row.cells[5].textContent = computedStyle.letterSpacing; 
-           });
+            rightColumnCells[0].textContent = computedStyle.fontWeight;
+            rightColumnCells[1].textContent = computedStyle.fontSize;
+            rightColumnCells[2].textContent = computedStyle.lineHeight;
+            rightColumnCells[3].textContent = computedStyle.color;
+            rightColumnCells[4].textContent = computedStyle.letterSpacing;
          }
-         
-         window.onload = updateTable;
-      </script>
-   </head>
+      });
+   </script>
+</head>
+<body>
+   <!-- ... your existing body content ... -->
+</body>
+</html>
+
+
+
+
+</head>
    <body>
       <!-- Global Nav Bar -->
       <body>
          <div class="navbar">
-          <div class="container">
-            <div class="logo">
-               <img src="images/svg/jarodromankiw-white-solo.svg" alt="Logo">
+            <div class="container">
+               <div class="logo">
+                  <img src="images/svg/jarodromankiw-white-solo.svg" alt="Logo">
+               </div>
+               <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Contact</a></li>
+               </ul>
             </div>
-            <ul>
-               <li><a href="#">Home</a></li>
-               <li><a href="#">About</a></li>
-               <li><a href="#">Services</a></li>
-               <li><a href="#">Contact</a></li>
-            </ul>
          </div>
-       </div>
    </body>
    <div class="container">
-  <p class="large-text">Get the typefaces you need to design interfaces for your apps on Apple platforms. These typefaces are designed to optimally display text at a variety of sizes and in a wide range of languages across multiple interfaces.</p>
-  <br>
-   <h2>Typography</h2>
-   <hr>
-   <table>
-      <tr>
-         <th>Font Styles</th>
-         <th>Font Weight</th>
-         <th>Font Size</th>
-         <th>Line Height</th>
-         <th>Color</th>
-         <th>Spacing</th>
-      </tr>
-      <tr>
-         <td>
-            <h1>H1 Header Text</h1>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <h2>H2 Header Text</h2>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <h3>H3 Header Text</h3>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <h4>H4 Header Text</h4>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <h5>H5 Header Text</h5>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <h6>H6 Header Text</h6>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <div class="subtitle">Subtitle Text</div>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <div class="large-text">Supporting Large Text</div>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <p>Regular paragraph.</p>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-      <tr>
-         <td>
-            <p class="small-paragraph">Small paragraph.</p>
-         </td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-         <td class="right-column"></td>
-      </tr>
-   </table>
-   <br><br>
-   <h2>Logos</h2>
-   <hr>
-   <div class="container2x1">
-   <div class="column2x1">
-   <img src="images/svg/romankiw-black.svg" class="media-kit-logo">
-   </div>
-   <div class="column2x1 right">
-   <img src="images/svg/romankiw-white.svg" class="media-kit-logo">
-   </div>
-   </div>
+      <p class="large-text">Get the typefaces you need to design interfaces for your apps on Apple platforms. These typefaces are designed to optimally display text at a variety of sizes and in a wide range of languages across multiple interfaces.</p>
+      <br>
+      <h2>Typography</h2>
+      <hr>
+      <table id="typographyTable">
+         <tr>
+            <th>Font Styles</th>
+            <th>Font Weight</th>
+            <th>Font Size</th>
+            <th>Line Height</th>
+            <th>Color</th>
+            <th>Spacing</th>
+         </tr>
+         <tr>
+            <td>
+               <h1>H1 Header Text</h1>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <h2>H2 Header Text</h2>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <h3>H3 Header Text</h3>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <h4>H4 Header Text</h4>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <h5>H5 Header Text</h5>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <h6>H6 Header Text</h6>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <div class="subtitle">Subtitle Text</div>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <div class="large-text">Supporting Large Text</div>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <p>Regular paragraph.</p>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+         <tr>
+            <td>
+               <p class="small-paragraph">Small paragraph.</p>
+            </td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+            <td class="right-column"></td>
+         </tr>
+      </table>
+      <br><br>
+      <h2>Logos</h2>
+      <hr>
       <div class="container2x1">
-   <div class="column2x1">
-   <img src="images/svg/jarodromankiw-black.svg" class="media-kit-logo">
-   </div>
-   <div class="column2x1">
-   <img src="images/svg/jarodromankiw-white.svg" class="media-kit-logo">
-   </div>
-   </div>
+         <div class="column2x1">
+            <img src="images/svg/romankiw-black.svg" class="media-kit-logo">
+         </div>
+         <div class="column2x1 right">
+            <img src="images/svg/romankiw-white.svg" class="media-kit-logo">
+         </div>
+      </div>
       <div class="container2x1">
-   <div class="column2x1">
-   <img src="images/svg/jr-black.svg" class="media-kit-logo">
-   </div>
-   <div class="column2x1 right">
-   <img src="images/svg/jr-white.svg" class="media-kit-logo">
-   </div>
-   </div>
-   <h2>Primary Colors</h2>
-   <hr>
+         <div class="column2x1">
+            <img src="images/svg/jarodromankiw-black.svg" class="media-kit-logo">
+         </div>
+         <div class="column2x1">
+            <img src="images/svg/jarodromankiw-white.svg" class="media-kit-logo">
+         </div>
+      </div>
+      <div class="container2x1">
+         <div class="column2x1">
+            <img src="images/svg/jr-black.svg" class="media-kit-logo">
+         </div>
+         <div class="column2x1 right">
+            <img src="images/svg/jr-white.svg" class="media-kit-logo">
+         </div>
+      </div>
+      <h2>Primary Colors</h2>
+      <hr>
       <div class="color-info">
-      <div class="color-box" style="background-color: #181A1D;"></div>
-      <div class="color-details">
-         <h6>Off Black</h6>
-         <p>RGB: 24/26/29</p>
-         <p>HEX: #181A1D</p>
+         <div class="color-box" style="background-color: #181A1D;"></div>
+         <div class="color-details">
+            <h6>Off Black</h6>
+            <p>RGB: 24/26/29</p>
+            <p>HEX: #181A1D</p>
+         </div>
       </div>
-   </div>
-
-   <div class="color-info">
-      <div class="color-box" style="background-color: white; border: 1px solid #A8ACB1;"></div>
-      <div class="color-details">
-         <h6>White</h6>
-         <p>RGB: 255/255/255</p>
-         <p>HEX: #FFFFFF</p>
-      </div>
-   </div>
-   <h2>Secondary Colors</h2>
-   <hr>
-   <div class="color-info">
-      <div class="color-box" style="background-color: #002E5D;"></div>
-      <div class="color-details">
-         <h6>Blue</h6>
-         <p>RGB: 1/46/93</p>
-         <p>HEX: #002E5D</p>
-         <p>PMS: 648 C</p>
-      </div>
-   </div>
-   <div class="color-info">
-      <div class="color-box" style="background-color: #F5F7F9; border: 1px solid #A8ACB1;"></div>
-      <div class="color-details">
-         <h6>Off White</h6>
-         <p>RGB: 245/247/249</p>
-         <p>HEX: #F5F7F9</p>
-      </div>
-   </div>
-   <div class="color-info">
-      <div class="color-box" style="background-color: #a8acb1;"></div>
-      <div class="color-details">
-         <h6>Light Gray</h6>
-         <p>RGB: 168/172/177</p>
-         <p>HEX: #A8ACB1</p>
-      </div>
-   </div>
-   <div class="color-info">
-      <div class="color-box" style="background-color: #777A81;"></div>
-      <div class="color-details">
-         <h6>Medium Gray</h6>
-         <p>RGB: 199/122/129</p>
-         <p>HEX: #777A81</p>
-      </div>
-   </div>
-   <div class="color-info">
-      <div class="color-box" style="background-color: black;"></div>
-      <div class="color-details">
-         <h6>Black</h6>
-         <p>RGB: 0/0/0</p>
-         <p>HEX: #000000</p>
-      </div>
-   </div>
       <div class="color-info">
-     <div class="gradient-box color-box"></div>
-      <div class="color-details">
-         <h6>Sky Gradient</h6>
-         <p>RGB: 5/35/65 &rarr; 193/206/222</p>
-         <p>HEX: #052341 &rarr; #C1CEDE</p>
+         <div class="color-box" style="background-color: white; border: 1px solid #A8ACB1;"></div>
+         <div class="color-details">
+            <h6>White</h6>
+            <p>RGB: 255/255/255</p>
+            <p>HEX: #FFFFFF</p>
+         </div>
       </div>
+      <h2>Secondary Colors</h2>
+      <hr>
+      <div class="color-info">
+         <div class="color-box" style="background-color: #002E5D;"></div>
+         <div class="color-details">
+            <h6>Blue</h6>
+            <p>RGB: 1/46/93</p>
+            <p>HEX: #002E5D</p>
+            <p>PMS: 648 C</p>
+         </div>
+      </div>
+      <div class="color-info">
+         <div class="color-box" style="background-color: #F5F7F9; border: 1px solid #A8ACB1;"></div>
+         <div class="color-details">
+            <h6>Off White</h6>
+            <p>RGB: 245/247/249</p>
+            <p>HEX: #F5F7F9</p>
+         </div>
+      </div>
+      <div class="color-info">
+         <div class="color-box" style="background-color: #a8acb1;"></div>
+         <div class="color-details">
+            <h6>Light Gray</h6>
+            <p>RGB: 168/172/177</p>
+            <p>HEX: #A8ACB1</p>
+         </div>
+      </div>
+      <div class="color-info">
+         <div class="color-box" style="background-color: #777A81;"></div>
+         <div class="color-details">
+            <h6>Medium Gray</h6>
+            <p>RGB: 199/122/129</p>
+            <p>HEX: #777A81</p>
+         </div>
+      </div>
+      <div class="color-info">
+         <div class="color-box" style="background-color: black;"></div>
+         <div class="color-details">
+            <h6>Black</h6>
+            <p>RGB: 0/0/0</p>
+            <p>HEX: #000000</p>
+         </div>
+      </div>
+      <div class="color-info">
+         <div class="color-box" style="background-color: rgb(0,113,227)"></div>
+         <div class="color-details">
+            <h6>Accent Blue</h6>
+            <p>RGB: 0/113/227</p>
+            <p>HEX: </p>
+         </div>
+      </div>
+
+
+
+      <div class="color-info">
+         <div class="color-box" style="background: linear-gradient(to bottom, rgb(5,35,65), rgb(193,206,222));"></div>
+         <div class="color-details">
+            <h6>Sky Gradient</h6>
+            <p>RGB: 5/35/65 &rarr; 193/206/222</p>
+            <p>HEX: #052341 &rarr; #C1CEDE</p>
+         </div>
+      </div>
+      <div class="color-info">
+         <div class="color-box" style="background: linear-gradient(to bottom,rgb(24,26,29),rgb(0,56,86),rgb(11,145,136));"></div>
+         <div class="color-details">
+            <h6>Sky Gradient</h6>
+            <p>RGB: 5/35/65 &rarr; 193/206/222</p>
+            <p>HEX: #052341 &rarr; #C1CEDE</p>
+         </div>
+      </div>
+      <h2>Typography</h2>
+      <hr>
+      <div class="container2x1">
+         <div class="column2x1">
+            <p>Inter is a variable font family carefully crafted & designed for computer screens.<br><br>Inter features a tall x-height to aid in readability of mixed-case and lower-case text. Several OpenType features are provided as well, like contextual alternates that adjusts punctuation depending on the shape of surrounding glyphs, slashed zero for when you need to disambiguate "0" from "o", tabular numbers, etc.<br><br>The Inter project is led by Rasmus Andersson, a Swedish maker–of–software living in San Francisco. To contribute, see github.com/rsms/inter</p>
+            <br>
+            <a href="https://fonts.google.com/specimen/Inter" class="button" target="_blank">
+               <p>Download Inter from Google Fonts</p>
+            </a>
+         </div>
+         <div class="column2x1" style="padding-right: 0px;">
+            <img src="images/svg/romankiw-black.svg">
+         </div>
+      </div>
+      <h2>Typography</h2>
+      <hr>
+      <div class="tile">
+         <h2>Inter</h2>
+         <p>This neutral, flexible, sans-serif typeface is the system font for iOS, iPadOS, macOS and tvOS. SF Pro features nine weights, variable optical sizes for optimal legibility, four widths, and includes a rounded variant. SF Pro supports over 150 languages across Latin, Greek, and Cyrillic scripts.</p>
+         <a href="#" class="button">
+            <p>Download Inter from Google Fonts</p>
+         </a>
+      </div>
+      <br><br><br>
+      <h2>Digital Logo Display</h2>
+      <hr>
+      <p>When strategically positioning the logo on a television screen, it is imperative to meticulously consider the visual balance and harmony. To achieve this, it is recommended that a sufficient clearspace be observed on both the left and right sides of the logo. This clearspace, thoughtfully designed to enhance the logo's prominence and legibility, should ideally measure half the width of the logo itself. Adhering to this guideline not only ensures an aesthetically pleasing arrangement but also guarantees that the logo remains distinct and commanding even within the dynamic context of a television display.</p>
+      <br>
+      <h3>Romankiw Standard Logo</h3>
+      <br>
+      <img src="images/logo-tv-romankiw.svg">
+      <br><br>
+      <h3>Romankiw Cinema Logo</h3>
+      <br>
+      <img src="images/logo-tv-romankiw-cinema.svg">
+      <br><br>
+      <img src="images/svg/brand_element_overview.svg">
+      <br><br>
+      <img src="images/svg/brand_element_detail.svg">
+            <br><br><br>
+      <h2>Digital Logo Display</h2>
+      <hr>
+      <p>Crafting an impactful visual presentation, the Romankiw standard logo receives meticulous attention to detail. In the realm of typography, a deliberate choice comes to light: the letter spacing is purposefully fine-tuned to -40 tracking within Adobe Illustrator, and equivalently, to -0.04em through CSS. This precise adjustment serves as a testament to the unwavering commitment to design excellence, where every nuance is sculpted to perfection, ensuring that the logo's individual elements harmonize seamlessly to convey a message of distinction and sophistication</p>
+      <br>
+      <img src="images/letter-spacing-romankiw.svg">
    </div>
-
-   
-
-
-   <h2>Typography</h2>
-   <hr>
-<div class="container2x1">
-    <div class="column2x1">
-      <p>Inter is a variable font family carefully crafted & designed for computer screens.<br><br>Inter features a tall x-height to aid in readability of mixed-case and lower-case text. Several OpenType features are provided as well, like contextual alternates that adjusts punctuation depending on the shape of surrounding glyphs, slashed zero for when you need to disambiguate "0" from "o", tabular numbers, etc.<br><br>The Inter project is led by Rasmus Andersson, a Swedish maker–of–software living in San Francisco. To contribute, see github.com/rsms/inter</p><br><a href="https://fonts.google.com/specimen/Inter" class="button" target="_blank"><p>Download Inter from Google Fonts</p></a>
-    </div>
-
-    <div class="column2x1" style="padding-right: 0px;">
-         <img src="images/svg/romankiw-black.svg">
-    </div>
-  </div>
-   <h2>Typography</h2>
-   <hr>
-<div class="tile">
-      <h2>Inter</h2>
-      <p>This neutral, flexible, sans-serif typeface is the system font for iOS, iPadOS, macOS and tvOS. SF Pro features nine weights, variable optical sizes for optimal legibility, four widths, and includes a rounded variant. SF Pro supports over 150 languages across Latin, Greek, and Cyrillic scripts.</p>
-      <a href="#" class="button"><p>Download Inter from Google Fonts</p></a>
-    </div>
-<br><br><br><p>test</p>
-
-
- </div>
    </body>
 </html>
