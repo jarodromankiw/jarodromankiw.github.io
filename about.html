@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+
+  .body-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-top: 20px;
+  }
+
+  .left-column {
+    flex: 1;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .right-column {
+    flex: 1;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Use auto-fit instead of auto-fill */
+    gap: 10px;
+  }
+
+  .skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .columns {
+      flex-direction: column;
+    }
+
+    .right-column {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
+</style>
+<title>Two-Column Page</title>
+</head>
+<body class="body-container">
+  <div>
+    <h1>Hello World</h1>
+    <div class="columns">
+      <div class="left-column">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum arcu eu ligula hendrerit, eu gravida arcu blandit.</p>
+      </div>
+      <div class="right-column">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">Responsive Design</div>
+          <div class="skill">UI/UX Design</div>
+          <div class="skill">Problem Solving</div>
+          <!-- Add more skills here -->
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="left-column">
+        <img src="profile.jpg">
+      </div>
+      <div class="right-column">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">Responsive Design</div>
+          <div class="skill">UI/UX Design</div>
+          <div class="skill">Problem Solving</div>
+          <!-- Add more skills here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
