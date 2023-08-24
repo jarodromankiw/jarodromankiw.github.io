@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+<style>
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+
+  }
+  .header{
+   padding: 30px;
+   padding-bottom: 0;
+   max-width: 980px;
+   margin: auto;
+  }
+  .column {
+    flex: 1;
+    padding: 0 10px;
+  }
+  .column h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+  }
+         h1, h2, h3, h4 {
+         margin: 0;
+         }
+         h1 { font-size: 40px; line-height: 1.125; font-weight: 600; letter-spacing: -0.04em;}
+         h2 { font-size: 28px; font-weight: 600;}
+         h3 { font-size: 21px; font-weight: 600;}
+         h4 { font-size: 16px; font-weight: 600; margin-bottom: 10px}
+         p { font-size: 16px; margin: 0;}
+         .subtitle { font-size: 12px; font-weight: 600; line-height: 16px; color: #777A81; }
+         .large-text { font-size: 21px; }
+  .ingredient-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .subtitle { font-size: 18px; }
+  .instructions {
+    list-style: none;
+    padding-left: 0;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+
+  /* Media query for mobile */
+  @media screen and (max-width: 600px) {
+    .container {
+      flex-direction: column;
+    }
+    .column {
+      padding: 0;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+   <h1>Chocholate Chip Cookies</h1>
+   <div class="large-text">Ah, the humble chocolate chip cookie. Not only is it the greatest type of cookie in the cookie world, but also one of my favorite sweets of all time. This one is my ideal version.</div>
+</div>
+<div class="container">
+  <div class="column">
+    <h2>Ingredients</h2>
+    <ul class="ingredient-list">
+      <h4>Cookies</h4>
+        <li>1/2 cup (114g) butter</li>
+        <li>1/2 cup (100g) sugar</li>
+        <li>1/4 cup (40g) light brown sugar</li>
+        <li>1/4 cup (40g) dark brown sugar</li>
+        <li>1/2 teaspoon fine sea salt</li>
+        <li>1 egg</li>
+        <li>200g all-purpose flour</li>
+        <li>1/2 teaspoon baking soda</li>
+        <li>1 teaspoon vanilla</li>
+        <li>200g bittersweet chocolate (chopped)</li>
+    </ul>
+  </div>
+  <div class="column">
+    <h2>Instructions</h2>
+    <ol class="instructions">
+      <h4>For the Cookies</h4>
+      <li>Sift together flour and baking soda and set aside. In the bowl of a standing electric mixer fitted with the paddle attachment, cream butter until lemony yellow, about 2 minutes. Scrape down sides of bowl and paddle. Add sugar, brown sugar and salt. Continue creaming mixture on medium speed until it is smooth and lump free, about 1 minute. Stop mixer and scrape down sides of bowl and paddle.</li>
+      <li>Add egg and vanilla and beat on low speed for 15 seconds, or until they are fully incorporated. Do not over-beat. Scrape down sides of bowl and paddle.</li>
+      <li>On low speed, add sifted flour mixture. Beat slowly until all of the flour is incorporated. Scrape down sides of bowl. Add chocolate chunks and mix in.</li>
+      <li>Heat oven to 350 degrees with the rack positioned in the lower third of the oven. Line 2 baking sheets with parchment. Spoon heaping teaspoons of dough 2 inches apart onto baking sheets. If not baking right away, remove small handfuls or spoonfuls of dough from mixer and plop them down on the middle of a sheet of parchment or wax paper, creating a log about 1 1/2 inches wide and 12 inches long. Fold parchment over, creating a sausage. Chill for at least 1 hour, preferably overnight. Using a serrated knife, slice chilled dough into 1/3-inch-thick rounds and place them 2 inches apart, in staggered rows, on parchment-lined sheets and proceed. (Dough will keep nicely, tightly wrapped, in the refrigerator for 1 week, or in the freezer for up to 1 month. Thaw frozen dough at room temperature for 30 minutes before slicing.)</li>
+      <li>Bake one sheet at a time for 13 for big cookie, 10 min for small cookie (11 min if frozen). Slam cookie tray halfway through to flatten cookies.</li>
+    </ol>
+  </div>
+</div>
+</body>
+</html>
