@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fullscreen Looping Video</title>
+  <style>
+    html,body { height:100%; margin:0; background:black; overflow:hidden; }
+    #player {
+      width:100vw; height:100vh;
+      object-fit: cover;
+      display:block;
+      background:black;
+    }
+
+    #playOverlay {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+    #playOverlay svg { width:70px; height:70px; fill:white; }
+  </style>
+</head>
+<body>
+
+  <!-- VIDEO: relative path in same folder -->
+  <video id="player"
+         src="Logo_1.mp4"
+         autoplay
+         loop
+         muted
+         playsinline
+         preload="auto"
+         tabindex="0"
+  ></video>
+
+  <div id="playOverlay">
+    <svg viewBox="0 0 64 64">
+      <path d="M16 12v40l36-20L16 12z"/>
+    </svg>
+  </div>
+
+<script>
+(function(){
+  const video = document.getElementById('player');
+  const overlay = document.getElementById('playOverlay');
+
+  function requestFS(){
+    const el = document.documentElement;
+    const rfs = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+    if (rfs && !document.fullscreenElement) rfs.call(el);
+  }
+
+  function tryPlay(){
+    const p = video.play();
+    if (p) {
+      p.then(() => {
+        overlay.style.display = "none";
+        requestFS();
+      }).catch(() => {
+        overlay.style.display = "flex";
+      });
+    }
+  }
+
+  overlay.addEventListener("click", () => {
+    video.muted = false;
+    overlay.style.display = "none";
+    video.play().then(requestFS);
+  });
+
+  window.addEventListener("load", () => setTimeout(tryPlay, 100));
+
+})();
+</script>
+</body>
+</html>
