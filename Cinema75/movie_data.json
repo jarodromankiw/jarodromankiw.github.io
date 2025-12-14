@@ -1,5 +1,5 @@
 {
-  "movieName": "[FILM NAME]",
-  "showingTime": "[SHOW TIME]",
-  "movieYear": "2024"
+  "movieName": "[HEADER TEXT WITHOUT YEAR]",
+  "tagline": "[SUBHEADER/TAGLINE TEXT]",
+  "movieYear": "[EXTRACTED YEAR]"
 }
